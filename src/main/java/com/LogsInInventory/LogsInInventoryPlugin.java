@@ -1,25 +1,19 @@
-package com.DamageTracker;
+package com.LogsInInventory;
 
-import com.google.inject.Provides;
 import javax.inject.Inject;
 import lombok.extern.slf4j.Slf4j;
-import net.runelite.api.ChatMessageType;
 import net.runelite.api.Client;
-import net.runelite.api.GameState;
-import net.runelite.api.events.GameStateChanged;
-import net.runelite.client.config.ConfigManager;
-import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayManager;
 
 @Slf4j
 @PluginDescriptor(
-	name = "Damage Tracker",
-	description = "Tracks damage done to an enemy",
-	tags = {"damage"}
+	name = "Logs In Inventory",
+	description = "Tracks the total number of logs in your inventory",
+	tags = {"logs", "inventory"}
 )
-public class DamageTrackerPlugin extends Plugin {
+public class LogsInInventoryPlugin extends Plugin {
 	@Inject
 	private Client client;
 
@@ -27,7 +21,7 @@ public class DamageTrackerPlugin extends Plugin {
 	private OverlayManager overlayManager;
 
 	@Inject
-	private DamageTrackerOverlay overlay;
+	private LogsInInventoryOverlay overlay;
 
 	@Override
 	protected void startUp() throws Exception {

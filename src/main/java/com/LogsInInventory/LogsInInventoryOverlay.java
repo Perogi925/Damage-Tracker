@@ -1,4 +1,4 @@
-package com.DamageTracker;
+package com.LogsInInventory;
 
 
 import com.jogamp.nativewindow.util.Dimension;
@@ -12,13 +12,13 @@ import net.runelite.client.ui.overlay.components.TitleComponent;
 import javax.inject.Inject;
 import java.awt.*;
 
-public class DamageTrackerOverlay extends Overlay {
+public class LogsInInventoryOverlay extends Overlay {
 
     private final Client client;
     private final PanelComponent panelComponent = new PanelComponent();
 
     @Inject
-    private DamageTrackerOverlay(Client client){
+    private LogsInInventoryOverlay(Client client){
         setPosition(OverlayPosition.ABOVE_CHATBOX_RIGHT);
         this.client = client;
     }
@@ -26,16 +26,13 @@ public class DamageTrackerOverlay extends Overlay {
     @Override
     public java.awt.Dimension render(Graphics2D graphics){
         panelComponent.getChildren().clear();
-        String overlayTitle = "Damage Tracker";
+        String overlayTitle = "Logs In Inventory";
 
-        panelComponent.getChildren().add(TitleComponent.builder()
-            .text(overlayTitle)
-            .color(Color.GREEN)
-            .build());
+        panelComponent.getChildren().add(TitleComponent.builder().text(overlayTitle).color(Color.GREEN).build());
 
         panelComponent.setPreferredSize(new java.awt.Dimension(graphics.getFontMetrics().stringWidth(overlayTitle) + 30, 0));
 
-        panelComponent.getChildren().add(LineComponent.builder().left("Damage:").right(Integer.toString(client.getWorld())).build());
+        panelComponent.getChildren().add(LineComponent.builder().right(Integer.toString(client.getWorld())).build());
 
         return panelComponent.render(graphics);
 
