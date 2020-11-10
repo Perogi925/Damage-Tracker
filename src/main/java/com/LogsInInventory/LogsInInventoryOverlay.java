@@ -30,7 +30,7 @@ public class LogsInInventoryOverlay extends Overlay {
     @Override
     public java.awt.Dimension render(Graphics2D graphics) {
         panelComponent.getChildren().clear();
-        String overlayTitle = "Logs In Inventory";
+        String overlayTitle = "Total Logs In Inventory";
 
         panelComponent.getChildren().add(TitleComponent.builder().text(overlayTitle).color(Color.GREEN).build());
 
