@@ -22,7 +22,7 @@ public class LogsInInventoryOverlay extends Overlay {
 
     @Inject
     private LogsInInventoryOverlay(Client client) {
-        setPosition(OverlayPosition.ABOVE_CHATBOX_RIGHT);
+        setPosition(OverlayPosition.TOP_LEFT);
         this.client = client;
     }
 
@@ -32,11 +32,11 @@ public class LogsInInventoryOverlay extends Overlay {
         panelComponent.getChildren().clear();
         String overlayTitle = "Total Logs In Inventory";
 
-        panelComponent.getChildren().add(TitleComponent.builder().text(overlayTitle).color(Color.GREEN).build());
+        panelComponent.getChildren().add(TitleComponent.builder().text(overlayTitle).color(Color.PINK).build());
 
         panelComponent.setPreferredSize(new java.awt.Dimension(graphics.getFontMetrics().stringWidth(overlayTitle) + 30, 0));
 
-        panelComponent.getChildren().add(LineComponent.builder().right(Integer.toString(getLogs())).build());
+        panelComponent.getChildren().add(LineComponent.builder().left(Integer.toString(getLogs())).build());
 
         return panelComponent.render(graphics);
 
